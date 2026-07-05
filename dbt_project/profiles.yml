@@ -1,0 +1,20 @@
+el_azure_dbt:
+
+  target: dev
+
+  outputs:
+
+    dev:
+      type: snowflake
+
+      account: cvumtbb-yxb52563
+      user: dw0snw0dbt
+      password: Sabote.123.123
+
+      role: TRANSFORMER_ROLE
+      warehouse: COMPUTE_WH
+      database: CLIENT_DATA_PLATFORM
+      schema: ANALYTICS
+
+      threads: 2
+      client_session_keep_alive: false

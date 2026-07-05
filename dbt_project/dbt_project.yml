@@ -1,0 +1,14 @@
+name: el_azure_dbt
+version: 1.0
+
+profile: el_azure_dbt
+
+model-paths: ["models"]
+
+models:
+  el_azure_dbt:
+    staging:
+      materialized: view
+
+    marts:
+      materialized: table

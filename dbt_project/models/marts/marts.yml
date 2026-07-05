@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: fct_orders
+    description: "Fact table for orders with incremental processing"
+
+    columns:
+
+      - name: order_id
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_id
+        tests:
+          - not_null
+
+      - name: product_code
+        tests:
+          - not_null
+
+      - name: total_amount
+        tests:
+          - not_null
+
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['NEW', 'PROCESSING', 'SHIPPED', 'DELIVERED', 'CANCELLED']
+
+      - name: updated_at
+        tests:
+          - not_null
