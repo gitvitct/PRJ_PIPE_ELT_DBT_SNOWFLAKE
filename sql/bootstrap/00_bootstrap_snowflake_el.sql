@@ -234,3 +234,10 @@ SELECT CURRENT_WAREHOUSE(); -- COMPUTE_WH
 
 GRANT ROLE TRANSFORMER_ROLE TO USER dw0snw0dbt;
 GRANT ROLE AIRFLOW_ROLE TO USER dw0snw0dbt;
+
+
+------------------------------------------------------
+-- Snowflake Tasks
+------------------------------------------------------
+
+ALTER TASK CLIENT_DATA_PLATFORM.METADATA.TASK_INCREMENTAL_ORDERS RESUME;

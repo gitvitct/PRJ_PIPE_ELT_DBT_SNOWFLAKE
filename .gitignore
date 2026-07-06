@@ -16,6 +16,8 @@ dbt_packages/
 
 data/deadletter/
 
+el_azure_pipeline_dag_snowsql.py
+
 projeto_documentacao.zip
 docker-compose-bkp.yml
 Dockerfile-bkp
