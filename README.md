@@ -14,7 +14,7 @@ A production-inspired ELT pipeline built with Airflow, Snowflake and dbt, demons
           Snowflake Shared Database
                      │
                      ▼
-        Stored Procedures (SQL)
+              SNOWFLAKE TASKS
       Initial Load / Incremental Load
                      │
                      ▼
