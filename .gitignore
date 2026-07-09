@@ -8,6 +8,10 @@ venv/
 
 airflow.db
 
+00_bootstrap_snowflake_el.sql
+
+bootstrap.sh
+
 target/
 dbt_packages/
 

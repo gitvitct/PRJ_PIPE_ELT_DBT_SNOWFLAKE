@@ -13,30 +13,34 @@ CREATE WAREHOUSE IF NOT EXISTS COMPUTE_WH
 WITH
     WAREHOUSE_SIZE = 'XSMALL'
     AUTO_SUSPEND = 60
-    AUTO_RESUME = TRUE;
+    AUTO_RESUME = TRUE
+    COMMENT = 'Warehouse used by the Enterprise EL Platform POC'    
+    ;
 
 -- ==========================================================
 -- DATABASE
 -- ==========================================================
 
-CREATE DATABASE IF NOT EXISTS CLIENT_DATA_PLATFORM;
+--CREATE DATABASE IF NOT EXISTS CLIENT_DATA_PLATFORM
+--COMMENT = 'Client Data Platform';
 
-USE DATABASE CLIENT_DATA_PLATFORM;
+--USE DATABASE CLIENT_DATA_PLATFORM;
 
 -- ==========================================================
 -- SCHEMAS
 -- ==========================================================
 
-CREATE SCHEMA IF NOT EXISTS RAW;
-CREATE SCHEMA IF NOT EXISTS STAGING;
-CREATE SCHEMA IF NOT EXISTS ANALYTICS;
-CREATE SCHEMA IF NOT EXISTS METADATA;
+--CREATE SCHEMA IF NOT EXISTS RAW;
+--CREATE SCHEMA IF NOT EXISTS STAGING;
+--CREATE SCHEMA IF NOT EXISTS ANALYTICS;
+--CREATE SCHEMA IF NOT EXISTS METADATA;
 
 -- ==========================================================
 -- ROLE
 -- ==========================================================
 
-CREATE ROLE IF NOT EXISTS TRANSFORMER_ROLE;
+--CREATE ROLE IF NOT EXISTS TRANSFORMER_ROLE
+--COMMENT = 'Role used by dbt';
 
 -- ==========================================================
 -- USER
@@ -142,6 +146,26 @@ TO ROLE TRANSFORMER_ROLE;
 GRANT SELECT, INSERT, UPDATE, DELETE
 ON FUTURE TABLES IN SCHEMA CLIENT_DATA_PLATFORM.ANALYTICS
 TO ROLE TRANSFORMER_ROLE;
+-- ==========================================================
+-- SCHEMAS
+-- ==========================================================
+
+GRANT CREATE TABLE
+ON SCHEMA CLIENT_DATA_PLATFORM.RAW
+TO ROLE TRANSFORMER_ROLE;
+
+GRANT CREATE TABLE
+ON SCHEMA CLIENT_DATA_PLATFORM.CORE
+TO ROLE TRANSFORMER_ROLE;
+
+GRANT CREATE VIEW
+ON SCHEMA CLIENT_DATA_PLATFORM.CORE
+TO ROLE TRANSFORMER_ROLE;
+
+GRANT CREATE TABLE
+ON SCHEMA CLIENT_DATA_PLATFORM.ANALYTICS
+TO ROLE TRANSFORMER_ROLE;
+
 
 -- ==========================================================
 -- VIEWS

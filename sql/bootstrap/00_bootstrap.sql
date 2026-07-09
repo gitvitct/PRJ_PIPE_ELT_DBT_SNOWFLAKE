@@ -49,7 +49,7 @@ COMMENT = 'Simulated Snowflake Data Share';
 CREATE SCHEMA IF NOT EXISTS CLIENT_DATA_PLATFORM.RAW
 COMMENT = 'Raw replicated data';
 
-CREATE SCHEMA IF NOT EXISTS CLIENT_DATA_PLATFORM.CORE
+CREATE SCHEMA IF NOT EXISTS CLIENT_DATA_PLATFORM.STAGING
 COMMENT = 'Business transformation layer';
 
 CREATE SCHEMA IF NOT EXISTS CLIENT_DATA_PLATFORM.ANALYTICS
@@ -80,3 +80,8 @@ COMMENT = 'Role used by Apache Airflow';
 -- ============================================================================
 
 SELECT 'Bootstrap completed successfully.' AS STATUS;
+
+
+--###########################################################################
+--###########################################################################
+--###########################################################################
