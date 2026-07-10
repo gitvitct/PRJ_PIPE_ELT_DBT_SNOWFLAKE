@@ -7,9 +7,9 @@ el_azure_dbt:
     dev:
       type: snowflake
 
-      account: cvumtbb-yxb52563
-      user: dw0snw0dbt
-      password: Sabote.123.123
+      account: 'your_account'
+      user: 'user'
+      password: 'pass'
 
       role: TRANSFORMER_ROLE
       warehouse: COMPUTE_WH
