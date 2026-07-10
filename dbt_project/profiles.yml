@@ -6,15 +6,42 @@ el_azure_dbt:
 
     dev:
       type: snowflake
-
-      account: 'your_account'
-      user: 'user'
-      password: 'pass'
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
 
       role: TRANSFORMER_ROLE
-      warehouse: COMPUTE_WH
-      database: CLIENT_DATA_PLATFORM
+      warehouse: COMPUTE_WH_DEV
+      database: CLIENT_DATA_PLATFORM_DEV
       schema: ANALYTICS
 
       threads: 2
+      client_session_keep_alive: false
+
+    qa:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+
+      role: TRANSFORMER_ROLE
+      warehouse: COMPUTE_WH_QA
+      database: CLIENT_DATA_PLATFORM_QA
+      schema: ANALYTICS
+
+      threads: 4
+      client_session_keep_alive: false
+
+    prod:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+
+      role: TRANSFORMER_ROLE
+      warehouse: COMPUTE_WH_PROD
+      database: CLIENT_DATA_PLATFORM
+      schema: ANALYTICS
+
+      threads: 8
       client_session_keep_alive: false
